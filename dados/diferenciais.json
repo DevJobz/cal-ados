@@ -1,0 +1,26 @@
+{
+  "badge": "Por que escolher a Bem-Me-Quer",
+  "titulo": "O que nos torna especiais",
+  "items": [
+    {
+      "icone": "grid",
+      "titulo": "Variedade para toda a família",
+      "texto": "Do infantil ao adulto, temos calçados para todas as idades e estilos. Uma seleção completa para que cada membro da família encontre o par perfeito."
+    },
+    {
+      "icone": "star",
+      "titulo": "Grandes marcas de qualidade",
+      "texto": "Trabalhamos com as melhores marcas do mercado, garantindo produtos com durabilidade, conforto e estilo que você só encontra em quem entende do assunto."
+    },
+    {
+      "icone": "building",
+      "titulo": "Loja tradicional na cidade",
+      "texto": "Referência em Piratininga, a Bem-Me-Quer é sinônimo de confiança. Atendemos gerações de famílias com o mesmo cuidado e dedicação de sempre."
+    },
+    {
+      "icone": "trend",
+      "titulo": "Sempre na moda",
+      "texto": "Estoque sempre renovado com as últimas tendências. Aqui você encontra o que há de mais moderno, sem abrir mão da qualidade e do conforto."
+    }
+  ]
+}

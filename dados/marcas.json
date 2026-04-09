@@ -1,0 +1,22 @@
+{
+  "badge": "Nossas Marcas",
+  "titulo": "Qualidade que você pode confiar",
+  "categorias": [
+    {
+      "nome": "Semijóias",
+      "marcas": ["Queen", "Cristaleira"]
+    },
+    {
+      "nome": "Cuidados da Pele",
+      "marcas": ["Mahogany"]
+    },
+    {
+      "nome": "Calçados Adulto",
+      "marcas": ["Beira Rio", "Vizzano", "Moleca", "Modare", "Ramarin", "Dacota", "Olympikus", "Fila", "New Balance", "Via Marte", "Campesi", "Kolosh", "Democrata"]
+    },
+    {
+      "nome": "Calçados Infantis",
+      "marcas": ["Kid", "Molekinha", "Molekinho", "Pink Cats", "Disney"]
+    }
+  ]
+}

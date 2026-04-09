@@ -1,0 +1,48 @@
+{
+  "badge": "Nossos Produtos",
+  "titulo": "Tudo que você precisa em um só lugar",
+  "subtitulo": "Clique em 'Saber Mais' em qualquer produto e fale diretamente com nossa equipe",
+  "wpp_num": "5514998220138",
+  "cards": [
+    {
+      "id": "semijoia",
+      "titulo": "Semijóias",
+      "descricao": "Coleção especial de semijóias das marcas Queen e Cristaleira. Anéis, pulseiras, colares e brincos com acabamento impecável para complementar qualquer look com elegância.",
+      "imagem": "/assets/images/uploads/prod-semijoia.jpg",
+      "badge_cor": "orange",
+      "wpp_msg": "Olá, Bem-Me-Quer! Vim pelo site e tenho interesse nas *Semijóias* (Queen e Cristaleira). Podem me mostrar as opções disponíveis?"
+    },
+    {
+      "id": "mahogany",
+      "titulo": "Linha Mahogany",
+      "descricao": "A sofisticada linha Mahogany completa: hidratantes corporais, sabonetes líquidos, shampoos, condicionadores e perfumes. Cuide-se com o melhor da linha.",
+      "imagem": "/assets/images/uploads/prod-mahogany.jpg",
+      "badge_cor": "orange",
+      "wpp_msg": "Olá, Bem-Me-Quer! Vim pelo site e tenho interesse na *Linha Mahogany* (hidratantes, sabonetes, shampoo, condicionador e perfumes). Quais produtos estão disponíveis?"
+    },
+    {
+      "id": "bolsas",
+      "titulo": "Bolsas e Mochilas",
+      "descricao": "Ampla variedade de bolsas femininas e mochilas para o dia a dia, trabalho e estudos. Modelos modernos e práticos para combinar com seu estilo.",
+      "imagem": "/assets/images/uploads/prod-bolsas.jpg",
+      "badge_cor": "orange",
+      "wpp_msg": "Olá, Bem-Me-Quer! Vim pelo site e tenho interesse nas *Bolsas e Mochilas*. Podem me mostrar o estoque disponível?"
+    },
+    {
+      "id": "calcados",
+      "titulo": "Calçados Adulto & Infantil",
+      "descricao": "Linha completa de calçados femininos, masculinos e infantis das melhores marcas: Beira Rio, Vizzano, Moleca, Modare, Olympikus, Fila, Via Marte, Democrata, Kid, Molekinha, Disney e muito mais.",
+      "imagem": "/assets/images/uploads/prod-calcados.jpg",
+      "badge_cor": "orange",
+      "wpp_msg": "Olá, Bem-Me-Quer! Vim pelo site e tenho interesse nos *Calçados* (adulto feminino, masculino e infantil). Podem me mostrar as marcas e modelos disponíveis?"
+    },
+    {
+      "id": "esportivos",
+      "titulo": "Linha Esportiva",
+      "descricao": "Tudo para o esporte: chuteiras, meiões, caneleiras e bolas das melhores marcas. Equipamentos de qualidade para quem leva o esporte a sério, seja no campo ou na academia.",
+      "imagem": "/assets/images/uploads/prod-esportivo.jpg",
+      "badge_cor": "orange",
+      "wpp_msg": "Olá, Bem-Me-Quer! Vim pelo site e tenho interesse na *Linha Esportiva* (chuteiras, meiões, caneleiras e bolas). Podem me mostrar o estoque?"
+    }
+  ]
+}

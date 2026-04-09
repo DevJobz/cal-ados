@@ -1,0 +1,17 @@
+{
+  "imagem_fundo": "/assets/images/uploads/hero-fachada.jpg",
+  "badge": "Tradição · Qualidade · Piratininga SP",
+  "titulo_linha1": "Bem-Me-Quer",
+  "titulo_linha2": "Calçados & Artigos Esportivos",
+  "subtitulo": "Calçados para toda a família, marcas de qualidade e atendimento que cuida de você.",
+  "cta_principal_label": "Ver Produtos",
+  "cta_principal_href": "#produtos",
+  "cta_wpp_label": "Falar no WhatsApp",
+  "cta_wpp_msg": "Olá, Bem-Me-Quer! Vim pelo site e gostaria de conhecer os produtos disponíveis.",
+  "stat_1_num": "20+",
+  "stat_1_label": "Marcas parceiras",
+  "stat_2_num": "5",
+  "stat_2_label": "Categorias de produtos",
+  "stat_3_txt": "Tradição",
+  "stat_3_label": "Na cidade de Piratininga"
+}

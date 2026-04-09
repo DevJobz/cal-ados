@@ -1,0 +1,15 @@
+{
+  "badge": "Nossa Loja & Produtos",
+  "titulo": "Conheça nossa coleção",
+  "items": [
+    { "tipo": "imagem", "url": "/assets/images/uploads/galeria-01.jpg", "legenda": "Vitrine da loja" },
+    { "tipo": "imagem", "url": "/assets/images/uploads/galeria-02.jpg", "legenda": "Linha feminina" },
+    { "tipo": "imagem", "url": "/assets/images/uploads/galeria-03.jpg", "legenda": "Linha masculina" },
+    { "tipo": "imagem", "url": "/assets/images/uploads/galeria-04.jpg", "legenda": "Calçados infantis" },
+    { "tipo": "imagem", "url": "/assets/images/uploads/galeria-05.jpg", "legenda": "Semijóias e acessórios" },
+    { "tipo": "imagem", "url": "/assets/images/uploads/galeria-06.jpg", "legenda": "Linha Mahogany" },
+    { "tipo": "imagem", "url": "/assets/images/uploads/galeria-07.jpg", "legenda": "Linha esportiva" },
+    { "tipo": "imagem", "url": "/assets/images/uploads/galeria-08.jpg", "legenda": "Bolsas e mochilas" },
+    { "tipo": "video",  "url": "/assets/images/uploads/video.mp4", "legenda": "Tour pela Bem-Me-Quer" }
+  ]
+}

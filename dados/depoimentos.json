@@ -1,0 +1,34 @@
+{
+  "badge": "O que dizem nossos clientes",
+  "titulo": "Clientes satisfeitos em primeiro lugar",
+  "items": [
+    {
+      "nome": "Marcos Tonon",
+      "tipo": "Cliente fiel",
+      "foto": "/assets/images/uploads/dep.jpg",
+      "texto": "Exelente atendimento e qualidade nos produtos",
+      "estrelas": 5
+    },
+    {
+      "nome": "Luciana Mendes",
+      "tipo": "Cliente recorrente",
+      "foto": "/assets/images/uploads/dep.jpg",
+      "texto": "ótimo",
+      "estrelas": 5
+    },
+    {
+      "nome": "Alessandra Yukie Kondo",
+      "tipo": "Nova cliente",
+      "foto": "/assets/images/uploads/dep.jpg",
+      "texto": "Loja com bastante variedades, atendentes super atenciosas, amo comprar na Brm me Quer",
+      "estrelas": 5
+    },
+    {
+      "nome": "Paulo Mazo",
+      "tipo": "Cliente satisfeito",
+      "foto": "/assets/images/uploads/dep.jpg",
+      "texto": "A Bem Me Quer Calçados Piratininga é uma loja que parece encantar os clientes com sua variedade e qualidade!",
+      "estrelas": 5
+    }
+  ]
+}

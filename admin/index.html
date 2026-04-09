@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel Admin — Bem-Me-Quer Calçados</title>
+  <meta name="robots" content="noindex, nofollow">
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <script>
+  CMS.registerPreviewStyle("/assets/css/style.css");
+
+  var LARANJA='#F07D1E', GRAFITE='#2B2B2B', BRANCO='#FFFFFF', OFF='#FDF8F5';
+
+  /* ── Hero Preview ─────────────────────────────── */
+  var HeroPreview = createClass({ render: function() {
+    var e=this.props.entry;
+    var t1=e.getIn(['data','titulo_linha1'])||'Bem-Me-Quer';
+    var t2=e.getIn(['data','titulo_linha2'])||'Calçados & Esportes';
+    var badge=e.getIn(['data','badge'])||'';
+    var sub=e.getIn(['data','subtitulo'])||'';
+    var imgR=e.getIn(['data','imagem_fundo']);
+    var img=imgR?this.props.getAsset(imgR).toString():'';
+    return h('div',{style:{position:'relative',minHeight:'440px',background:img?'none':GRAFITE,backgroundImage:img?'url('+img+')':'none',backgroundSize:'cover',backgroundPosition:'center',display:'flex',flexDirection:'column',alignItems:'stretch'}},
+      h('div',{style:{position:'absolute',inset:0,background:'linear-gradient(125deg,rgba(240,125,30,0.15),rgba(17,17,17,0.9))'}}),
+      h('div',{style:{position:'relative',zIndex:1,flex:1,display:'flex',flexDirection:'column',alignItems:'flex-start',justifyContent:'center',padding:'70px 40px 20px',fontFamily:'sans-serif'}},
+        h('span',{style:{display:'inline-flex',alignItems:'center',gap:'10px',fontSize:'0.62rem',fontWeight:600,letterSpacing:'0.28em',textTransform:'uppercase',color:LARANJA,marginBottom:'18px'}},
+          h('span',{style:{display:'block',width:'28px',height:'2px',background:LARANJA}}), badge
+        ),
+        h('h1',{style:{fontWeight:900,color:BRANCO,lineHeight:0.95,margin:'0 0 8px',textTransform:'uppercase',letterSpacing:'-0.02em'}},
+          h('span',{style:{fontSize:'clamp(3rem,8vw,7rem)',display:'block'}},
+            t1.split('-').map((p,i)=>h('span',{key:i,style:{color:i===1?LARANJA:BRANCO}},i>0?'-'+p:p))
+          ),
+          h('span',{style:{fontSize:'clamp(0.9rem,2.5vw,1.8rem)',fontStyle:'italic',color:'rgba(253,248,245,0.7)',fontWeight:400,letterSpacing:'0.12em',display:'block',marginTop:'4px'}},t2)
+        ),
+        h('p',{style:{color:'rgba(253,248,245,0.68)',fontSize:'0.9rem',maxWidth:'440px',lineHeight:1.75,margin:'18px 0 28px'}},sub),
+        h('div',{style:{display:'flex',gap:'10px'}},
+          h('span',{style:{display:'inline-block',background:LARANJA,color:BRANCO,padding:'11px 24px',borderRadius:'50px',fontSize:'0.8rem',fontWeight:600,letterSpacing:'0.08em',textTransform:'uppercase'}},'Ver Produtos'),
+          h('span',{style:{display:'inline-block',border:'2px solid rgba(255,255,255,0.5)',color:BRANCO,padding:'11px 24px',borderRadius:'50px',fontSize:'0.8rem',fontWeight:600,letterSpacing:'0.08em',textTransform:'uppercase'}},'WhatsApp')
+        )
+      )
+    );
+  }});
+  CMS.registerPreviewTemplate("hero", HeroPreview);
+
+  /* ── História Preview ─────────────────────────── */
+  var HistPreview = createClass({ render: function() {
+    var e=this.props.entry;
+    var titulo=e.getIn(['data','titulo'])||'';
+    var texto=e.getIn(['data','texto'])||'';
+    var badge=e.getIn(['data','badge'])||'';
+    var imgR=e.getIn(['data','imagem']);
+    var img=imgR?this.props.getAsset(imgR).toString():'';
+    var pars=texto.split('\n\n').filter(Boolean);
+    return h('div',{style:{background:BRANCO,padding:'40px',fontFamily:'sans-serif',display:'grid',gridTemplateColumns:'1fr 1fr',gap:'48px',alignItems:'center'}},
+      h('div',{},
+        h('span',{style:{fontSize:'0.62rem',fontWeight:600,letterSpacing:'0.26em',textTransform:'uppercase',color:LARANJA}},badge),
+        h('h2',{style:{fontSize:'2rem',fontWeight:800,color:GRAFITE,margin:'10px 0 18px',lineHeight:1.1}},titulo),
+        h('div',{},pars.map((p,i)=>h('p',{key:i,style:{color:'#555',fontSize:'0.9rem',lineHeight:1.88,marginBottom:'12px'}},p)))
+      ),
+      img?h('img',{src:img,style:{width:'100%',height:'320px',objectFit:'cover',borderRadius:'6px'}})
+         :h('div',{style:{width:'100%',height:'320px',background:'#F5EDE6',borderRadius:'6px',display:'flex',alignItems:'center',justifyContent:'center',color:LARANJA,fontSize:'0.85rem'}},h('span',{},'📷 Adicione a foto da loja'))
+    );
+  }});
+  CMS.registerPreviewTemplate("historia", HistPreview);
+
+  /* ── Produtos Preview ─────────────────────────── */
+  var ProdPreview = createClass({ render: function() {
+    var e=this.props.entry;
+    var cards=(e.getIn(['data','cards'])||[]).toJS();
+    var titulo=e.getIn(['data','titulo'])||'Nossos Produtos';
+    return h('div',{style:{background:OFF,padding:'36px',fontFamily:'sans-serif'}},
+      h('h2',{style:{fontSize:'2rem',fontWeight:800,color:GRAFITE,marginBottom:'28px',textAlign:'center'}},titulo),
+      h('div',{style:{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(200px,1fr))',gap:'18px'}},
+        cards.slice(0,5).map((c,i)=>h('div',{key:i,style:{background:BRANCO,borderRadius:'16px',overflow:'hidden',border:'1px solid rgba(43,43,43,0.1)'}},
+          h('div',{style:{height:'140px',background:'#F5EDE6',display:'flex',alignItems:'center',justifyContent:'center',position:'relative'}},
+            h('span',{style:{fontSize:'2rem'}},['👟','💍','🛍️','👞','⚽'][i]||'📦'),
+            h('span',{style:{position:'absolute',top:'8px',left:'8px',background:LARANJA,color:BRANCO,padding:'3px 10px',borderRadius:'50px',fontSize:'0.55rem',fontWeight:700,letterSpacing:'0.12em'}},'Disponível')
+          ),
+          h('div',{style:{padding:'14px'}},
+            h('div',{style:{fontSize:'0.95rem',fontWeight:700,color:GRAFITE,marginBottom:'6px'}},c.titulo||''),
+            h('p',{style:{fontSize:'0.8rem',color:'#888',lineHeight:1.7,marginBottom:'12px'}},(c.descricao||'').slice(0,70)+'...'),
+            h('span',{style:{display:'block',background:'#25D366',color:BRANCO,padding:'8px',borderRadius:'50px',fontSize:'0.72rem',fontWeight:600,textAlign:'center'}},'Saber Mais')
+          )
+        ))
+      )
+    );
+  }});
+  CMS.registerPreviewTemplate("produtos", ProdPreview);
+
+  /* ── Depoimentos Preview ──────────────────────── */
+  var DepPreview = createClass({ render: function() {
+    var e=this.props.entry;
+    var items=(e.getIn(['data','items'])||[]).toJS();
+    var titulo=e.getIn(['data','titulo'])||'';
+    var badge=e.getIn(['data','badge'])||'';
+    if(!items.length)return h('div',{style:{padding:'40px',textAlign:'center',color:GRAFITE}},h('p',{},'Nenhum depoimento'));
+    var d=items[0];
+    return h('div',{style:{background:BRANCO,padding:'44px',fontFamily:'sans-serif',textAlign:'center'}},
+      h('span',{style:{fontSize:'0.62rem',fontWeight:600,letterSpacing:'0.26em',textTransform:'uppercase',color:LARANJA}},badge),
+      h('h2',{style:{fontSize:'2rem',fontWeight:800,color:GRAFITE,margin:'12px 0 32px'}},titulo),
+      h('div',{style:{background:OFF,borderTop:'3px solid '+LARANJA,borderRadius:'12px',padding:'36px',maxWidth:'600px',margin:'0 auto',textAlign:'left'}},
+        h('div',{style:{color:LARANJA,fontSize:'1rem',letterSpacing:'4px',marginBottom:'14px'}},'★★★★★'),
+        h('p',{style:{fontStyle:'italic',fontSize:'1.05rem',color:GRAFITE,lineHeight:1.85,marginBottom:'22px'}},'"'+(d.texto||'')+'"'),
+        h('div',{style:{display:'flex',alignItems:'center',gap:'12px'}},
+          h('div',{style:{width:'46px',height:'46px',borderRadius:'50%',background:'#F5EDE6',border:'2px solid '+LARANJA,display:'flex',alignItems:'center',justifyContent:'center',fontSize:'1.2rem'}},d.nome?d.nome[0]:'?'),
+          h('div',{},h('div',{style:{fontWeight:700,color:GRAFITE}},d.nome||''),h('div',{style:{fontSize:'0.76rem',color:'#888'}},d.tipo||''))
+        )
+      )
+    );
+  }});
+  CMS.registerPreviewTemplate("depoimentos", DepPreview);
+
+  /* ── Empresa Preview ──────────────────────────── */
+  var EmpPreview = createClass({ render: function() {
+    var e=this.props.entry;
+    var titulo=e.getIn(['data','titulo'])||'Onde nos Encontrar';
+    var end=e.getIn(['data','endereco'])||'';
+    var hor=e.getIn(['data','horario'])||'';
+    var tel=e.getIn(['data','telefone'])||'';
+    return h('div',{style:{background:OFF,padding:'40px',fontFamily:'sans-serif'}},
+      h('h2',{style:{fontSize:'2rem',fontWeight:800,color:GRAFITE,marginBottom:'28px'}},titulo),
+      h('div',{style:{display:'flex',flexDirection:'column',gap:'18px'}},
+        h('div',{style:{display:'flex',gap:'14px',alignItems:'flex-start'}},
+          h('div',{style:{width:'40px',height:'40px',background:LARANJA,borderRadius:'8px',display:'flex',alignItems:'center',justifyContent:'center',flexShrink:0}},h('span',{style:{fontSize:'1rem'}},'📍')),
+          h('div',{},h('div',{style:{fontSize:'0.6rem',color:'#888',textTransform:'uppercase',letterSpacing:'0.15em',marginBottom:'4px'}},'Endereço'),h('div',{style:{color:GRAFITE}},end))
+        ),
+        h('div',{style:{display:'flex',gap:'14px',alignItems:'flex-start'}},
+          h('div',{style:{width:'40px',height:'40px',background:LARANJA,borderRadius:'8px',display:'flex',alignItems:'center',justifyContent:'center',flexShrink:0}},h('span',{style:{fontSize:'1rem'}},'🕐')),
+          h('div',{},h('div',{style:{fontSize:'0.6rem',color:'#888',textTransform:'uppercase',letterSpacing:'0.15em',marginBottom:'4px'}},'Horário'),h('div',{style:{color:GRAFITE}},hor))
+        ),
+        h('div',{style:{display:'flex',gap:'14px',alignItems:'flex-start'}},
+          h('div',{style:{width:'40px',height:'40px',background:LARANJA,borderRadius:'8px',display:'flex',alignItems:'center',justifyContent:'center',flexShrink:0}},h('span',{style:{fontSize:'1rem'}},'📞')),
+          h('div',{},h('div',{style:{fontSize:'0.6rem',color:'#888',textTransform:'uppercase',letterSpacing:'0.15em',marginBottom:'4px'}},'Contato'),h('div',{style:{color:LARANJA,fontWeight:600}},tel))
+        )
+      )
+    );
+  }});
+  CMS.registerPreviewTemplate("empresa", EmpPreview);
+  </script>
+</body>
+</html>

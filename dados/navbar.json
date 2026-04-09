@@ -1,0 +1,15 @@
+{
+  "logo_url": "/assets/images/uploads/logo-bmq.png",
+  "logo_alt": "Bem-Me-Quer Calçados e Artigos Esportivos",
+  "links": [
+    { "label": "Início",        "href": "#hero" },
+    { "label": "Nossa História","href": "#historia" },
+    { "label": "Produtos",      "href": "#produtos" },
+    { "label": "Galeria",       "href": "#galeria" },
+    { "label": "Depoimentos",   "href": "#depoimentos" },
+    { "label": "Contato",       "href": "#contato" }
+  ],
+  "cta_label": "Fale Conosco",
+  "cta_wpp_msg": "Olá, Bem-Me-Quer! Vim pelo site e gostaria de mais informações.",
+  "wpp_num": "5514998220138"
+}

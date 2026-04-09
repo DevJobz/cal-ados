@@ -1,0 +1,226 @@
+# ============================================================
+# BEM-ME-QUER CALÇADOS — Decap CMS Config v1.0
+# ============================================================
+
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "assets/images/uploads"
+public_folder: "/assets/images/uploads"
+
+locale: "pt"
+
+collections:
+
+  # ── 1. CONFIGURAÇÕES GERAIS ──────────────────────────────
+  - name: "config_geral"
+    label: "⚙️ Configurações & SEO"
+    files:
+
+      - name: "navbar"
+        label: "Barra de Navegação & Logo"
+        file: "dados/navbar.json"
+        format: json
+        fields:
+          - { label: "Logo (PNG fundo transparente, 300×100px)", name: logo_url, widget: image }
+          - { label: "Texto alternativo da logo", name: logo_alt, widget: string }
+          - label: "Links do menu"
+            name: links
+            widget: list
+            fields:
+              - { label: "Rótulo", name: label, widget: string }
+              - { label: "Link âncora (ex: #produtos)", name: href, widget: string }
+          - { label: "CTA — Rótulo do botão", name: cta_label, widget: string }
+          - { label: "CTA — Mensagem WhatsApp", name: cta_wpp_msg, widget: string }
+          - { label: "Número WhatsApp (com DDI, ex: 5514998220138)", name: wpp_num, widget: string }
+
+      - name: "seo"
+        label: "SEO e Compartilhamento"
+        file: "dados/configuracoes.json"
+        format: json
+        fields:
+          - { label: "Título SEO (aba do navegador)", name: seo_titulo, widget: string }
+          - { label: "Descrição SEO (Google)", name: seo_descricao, widget: text }
+          - { label: "Palavras-chave (separadas por vírgula)", name: seo_keywords, widget: string }
+          - { label: "Imagem compartilhamento (1200×630px)", name: seo_og_image, widget: image }
+
+  # ── 2. SEÇÕES DA PÁGINA ──────────────────────────────────
+  - name: "secoes"
+    label: "📄 Seções da Página"
+    files:
+
+      - name: "hero"
+        label: "Capa — Primeira Impressão"
+        file: "dados/hero.json"
+        format: json
+        fields:
+          - { label: "Foto de fundo (fachada, 1920×1080px)", name: imagem_fundo, widget: image }
+          - { label: "Badge (ex: Tradição · Qualidade · Piratininga SP)", name: badge, widget: string }
+          - { label: "Título — Linha principal (ex: Bem-Me-Quer)", name: titulo_linha1, widget: string }
+          - { label: "Título — Linha secundária (ex: Calçados & Esportes)", name: titulo_linha2, widget: string }
+          - { label: "Subtítulo", name: subtitulo, widget: string }
+          - { label: "Botão 1 — Rótulo", name: cta_principal_label, widget: string }
+          - { label: "Botão 1 — Link âncora", name: cta_principal_href, widget: string }
+          - { label: "Botão WhatsApp — Rótulo", name: cta_wpp_label, widget: string }
+          - { label: "Botão WhatsApp — Mensagem", name: cta_wpp_msg, widget: string }
+          - { label: "Stat 1 — Número/texto", name: stat_1_num, widget: string }
+          - { label: "Stat 1 — Rótulo", name: stat_1_label, widget: string }
+          - { label: "Stat 2 — Número/texto", name: stat_2_num, widget: string }
+          - { label: "Stat 2 — Rótulo", name: stat_2_label, widget: string }
+          - { label: "Stat 3 — Texto (pode ser emoji)", name: stat_3_txt, widget: string }
+          - { label: "Stat 3 — Rótulo", name: stat_3_label, widget: string }
+
+      - name: "historia"
+        label: "Nossa História"
+        file: "dados/historia.json"
+        format: json
+        fields:
+          - { label: "Badge", name: badge, widget: string }
+          - { label: "Título", name: titulo, widget: string }
+          - { label: "Texto (separe parágrafos com linha em branco)", name: texto, widget: text }
+          - { label: "Foto da loja ou equipe (900×700px)", name: imagem, widget: image }
+          - { label: "Texto alternativo da imagem", name: imagem_alt, widget: string }
+          - { label: "Assinatura (abaixo do texto)", name: assinatura, widget: string }
+
+      - name: "diferenciais"
+        label: "Diferenciais da Loja"
+        file: "dados/diferenciais.json"
+        format: json
+        fields:
+          - { label: "Badge", name: badge, widget: string }
+          - { label: "Título", name: titulo, widget: string }
+          - label: "Cards de Diferenciais"
+            name: items
+            widget: list
+            min: 1
+            max: 6
+            summary: "{{fields.titulo}}"
+            fields:
+              - label: "Ícone"
+                name: icone
+                widget: select
+                options:
+                  - { label: "☰ Grid (Variedade)", value: "grid" }
+                  - { label: "⭐ Estrela (Qualidade)", value: "star" }
+                  - { label: "🏢 Prédio (Tradição)", value: "building" }
+                  - { label: "📈 Tendência (Moda)", value: "trend" }
+              - { label: "Título do card", name: titulo, widget: string }
+              - { label: "Descrição", name: texto, widget: text }
+
+  # ── 3. PRODUTOS E CATÁLOGO ───────────────────────────────
+  - name: "catalogo"
+    label: "🛍️ Produtos & Marcas"
+    files:
+
+      - name: "produtos"
+        label: "Cards de Produtos (com WhatsApp)"
+        file: "dados/produtos.json"
+        format: json
+        fields:
+          - { label: "Badge da seção", name: badge, widget: string }
+          - { label: "Título da seção", name: titulo, widget: string }
+          - { label: "Subtítulo", name: subtitulo, widget: string }
+          - { label: "Número WhatsApp (com DDI)", name: wpp_num, widget: string }
+          - label: "Cards de Produtos"
+            name: cards
+            widget: list
+            min: 1
+            max: 12
+            summary: "{{fields.titulo}}"
+            fields:
+              - { label: "ID único (sem espaços)", name: id, widget: string }
+              - { label: "Título do produto/categoria", name: titulo, widget: string }
+              - { label: "Descrição", name: descricao, widget: text }
+              - { label: "Imagem (600×420px)", name: imagem, widget: image }
+              - { label: "Mensagem WhatsApp específica", name: wpp_msg, widget: text }
+
+      - name: "marcas"
+        label: "Carrossel de Marcas"
+        file: "dados/marcas.json"
+        format: json
+        fields:
+          - { label: "Badge da seção", name: badge, widget: string }
+          - { label: "Título da seção", name: titulo, widget: string }
+          - label: "Categorias de Marcas"
+            name: categorias
+            widget: list
+            summary: "{{fields.nome}}"
+            fields:
+              - { label: "Nome da categoria", name: nome, widget: string }
+              - label: "Marcas (uma por item)"
+                name: marcas
+                widget: list
+                field: { label: "Nome da marca", name: marca, widget: string }
+
+  # ── 4. CONTEÚDO DINÂMICO ─────────────────────────────────
+  - name: "conteudo"
+    label: "📸 Conteúdo Visual"
+    files:
+
+      - name: "galeria"
+        label: "Galeria de Fotos e Vídeos"
+        file: "dados/galeria.json"
+        format: json
+        fields:
+          - { label: "Badge", name: badge, widget: string }
+          - { label: "Título", name: titulo, widget: string }
+          - label: "Mídias"
+            name: items
+            widget: list
+            summary: "{{fields.legenda}}"
+            fields:
+              - label: "Tipo"
+                name: tipo
+                widget: select
+                options:
+                  - { label: "Foto", value: "imagem" }
+                  - { label: "Vídeo Local (.mp4)", value: "video" }
+              - { label: "Arquivo (foto) ou URL embed (vídeo YouTube)", name: url, widget: file }
+              - { label: "Legenda", name: legenda, widget: string }
+
+      - name: "depoimentos"
+        label: "Depoimentos de Clientes"
+        file: "dados/depoimentos.json"
+        format: json
+        fields:
+          - { label: "Badge", name: badge, widget: string }
+          - { label: "Título", name: titulo, widget: string }
+          - label: "Depoimentos"
+            name: items
+            widget: list
+            summary: "{{fields.nome}}"
+            fields:
+              - { label: "Nome do cliente", name: nome, widget: string }
+              - { label: "Tipo (ex: Cliente fiel)", name: tipo, widget: string }
+              - { label: "Foto do cliente (200×200px)", name: foto, widget: image }
+              - { label: "Texto do depoimento", name: texto, widget: text }
+              - label: "Avaliação"
+                name: estrelas
+                widget: select
+                options:
+                  - { label: "★★★★★ 5 estrelas", value: 5 }
+                  - { label: "★★★★☆ 4 estrelas", value: 4 }
+                  - { label: "★★★☆☆ 3 estrelas", value: 3 }
+
+  # ── 5. INFORMAÇÕES DA EMPRESA ─────────────────────────────
+  - name: "empresa_info"
+    label: "📍 Informações da Empresa"
+    files:
+
+      - name: "empresa"
+        label: "Localização & Contato"
+        file: "dados/empresa.json"
+        format: json
+        fields:
+          - { label: "Badge da seção", name: badge, widget: string }
+          - { label: "Título da seção", name: titulo, widget: string }
+          - { label: "Endereço completo", name: endereco, widget: string }
+          - { label: "Horário (ex: Segunda à Sábado: 09h às 18h)", name: horario, widget: string }
+          - { label: "Horário domingo", name: horario_dom, widget: string }
+          - { label: "Telefone (formatado)", name: telefone, widget: string }
+          - { label: "Número WhatsApp (com DDI, somente números)", name: wpp_num, widget: string }
+          - { label: "Mensagem padrão WhatsApp", name: wpp_msg, widget: string }
+          - { label: "Instagram (URL completa)", name: instagram, widget: string, required: false }
+          - { label: "Facebook (URL completa)", name: facebook, widget: string, required: false }
+          - { label: "Google Maps Embed URL (somente o src do iframe)", name: google_maps_embed, widget: string }
